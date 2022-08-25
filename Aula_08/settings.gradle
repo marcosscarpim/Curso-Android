@@ -1,0 +1,2 @@
+rootProject.name = "IntentsSample"
+include ':app'
