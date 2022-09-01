@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Aula10</string>
+    <string name="menu_action_share">Share</string>
+    <string name="menu_action_settings">Settings</string>
+    <string name="toolbar_title">Aula 10</string>
+    <string name="checkbox_option_1">Option 1</string>
+    <string name="checkbox_option_2">Option 2</string>
+    <string name="checkbox_option_3">Option 3</string>
+    <string name="radio_option_1">Radio 1</string>
+    <string name="radio_option_2">Radio 2</string>
+    <string name="radio_option_3">Radio 3</string>
+    <string name="button_submit">Submit</string>
+</resources>
