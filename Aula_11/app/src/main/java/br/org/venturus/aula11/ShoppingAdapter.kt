@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import br.org.venturus.aula11.databinding.ItemShoppingBinding
 
 class ShoppingAdapter(
     private val list: List<Product>,
@@ -13,9 +14,9 @@ class ShoppingAdapter(
 ) : RecyclerView.Adapter<ShoppingViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_shopping, parent, false)
-        return ShoppingViewHolder(view)
+        val binding =
+            ItemShoppingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ShoppingViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ShoppingViewHolder, position: Int) {
@@ -29,13 +30,13 @@ class ShoppingAdapter(
     override fun getItemCount(): Int = list.size
 }
 
-class ShoppingViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+class ShoppingViewHolder(private val binding: ItemShoppingBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(product: Product) {
-        view.apply {
-            findViewById<ImageView>(R.id.imageview_item_pic).setImageResource(product.image)
-            findViewById<TextView>(R.id.textview_item_name).text = product.name
-            findViewById<TextView>(R.id.textview_item_brand).text = product.brand
+        binding.apply {
+            imageviewItemPic.setImageResource(product.image)
+            textviewItemName.text = product.name
+            textviewItemBrand.text = product.brand
         }
     }
 }
@@ -44,6 +45,3 @@ class ShoppingViewHolder(private val view: View) : RecyclerView.ViewHolder(view)
 //fun interface ItemClickListener {
 //    fun onClick(product: Product)
 //}
-
-
-
