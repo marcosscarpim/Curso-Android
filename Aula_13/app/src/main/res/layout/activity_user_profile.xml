@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserProfileActivity">
+
+    <ImageView
+        android:id="@+id/imageview_header"
+        android:layout_width="0dp"
+        android:layout_height="256dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <ImageView
+        android:id="@+id/imageview_profile"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageview_header"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textview_username"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageview_profile"
+        app:layout_constraintTop_toTopOf="@+id/imageview_profile"
+        tools:text="João Sato" />
+
+    <TextView
+        android:id="@+id/textview_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/textview_username"
+        app:layout_constraintStart_toStartOf="@+id/textview_username"
+        app:layout_constraintTop_toBottomOf="@+id/textview_username"
+        tools:text="CEO @ Venturus" />
+
+    <TextView
+        android:id="@+id/textview_bio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/textview_description"
+        app:layout_constraintStart_toStartOf="@+id/imageview_profile"
+        app:layout_constraintTop_toBottomOf="@+id/imageview_profile"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a felis sollicitudin, malesuada felis ut, laoreet justo. Aliquam rutrum viverra lectus a rhoncus." />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

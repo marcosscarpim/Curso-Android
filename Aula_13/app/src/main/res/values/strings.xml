@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Aula13</string>
+
+    <string name="user_name">vnt/school</string>
+    <string name="user_description">Universidade VNT</string>
+    <string name="user_bio">Phasellus ornare augue felis, ut euismod mauris hendrerit eget. Ut lobortis sem ac nisl elementum, eget porttitor magna rhoncus. Vivamus ultricies quam sit amet convallis molestie. Curabitur pretium ex vitae cursus dignissim. Integer mauris magna, suscipit vitae elementum id, congue eget diam. Praesent accumsan enim quis lobortis porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In at velit tortor. Nunc quis pellentesque nisl. Praesent ut consectetur nulla. Vestibulum maximus nulla quis aliquam laoreet. </string>
+</resources>
