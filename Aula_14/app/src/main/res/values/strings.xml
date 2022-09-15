@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Coroutines</string>
+    <string name="button_run">Rodar!</string>
+
+    <string name="main_state_idle">Clique em \'Rodar!\'</string>
+    <string name="main_state_loading">Carregando o processamento...</string>
+    <string name="main_state_executing">Executando o processamento pesado...</string>
+    <string name="main_state_success">Processamento executado com sucesso!</string>
+</resources>
