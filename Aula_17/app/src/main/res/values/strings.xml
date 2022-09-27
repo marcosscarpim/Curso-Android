@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">InternetRequest</string>
+    <string name="button_new_joke">New joke</string>
+</resources>
