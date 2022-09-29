@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Aula18</string>
+    <string name="button_show_notification">Mostrar notificação</string>
+
+    <string name="notification_title">Notificação da Aula 18</string>
+    <string name="notification_text">Essa é a sua notificação da Aula 18!</string>
+
+    <string name="notification_channel_name">Notificações de lembrete</string>
+    <string name="notification_channel_description">Notificações principais da Aula 18</string>
+    <string name="button_request_permission">Pedir permissão</string>
+</resources>
