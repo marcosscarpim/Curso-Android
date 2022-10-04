@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Accessibility</string>
+    <string name="product_monstera_title">Monstera Deliciosa</string>
+    <string name="product_monstera_description">Monsetera Deliciosa is native to the rain forests of Mexico and Central America. Its young leaves are smaller with no lobes or holes, but produce their famed perforated leaves as they mature. As a sub-canopy plant, monsteras are tolerant of lower light conditions, but will grow more quickly and evenly in bright indirect light.</string>
+    <string name="product_learn_more">Learn more</string>
+    <string name="product_all_rights_reserved">All rights reserved</string>
+</resources>
