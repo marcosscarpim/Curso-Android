@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Debugging</string>
+    <string name="button_show_message">Show message</string>
+    <string name="hint_your_name">Your name</string>
+</resources>
