@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Testing</string>
+    <string name="button_sum">Sum</string>
+    <string name="button_sub">Sub</string>
+    <string name="button_divide">Divide</string>
+    <string name="hint_first">First Number</string>
+    <string name="hint_second">Second Number</string>
+    <string name="greeting_message">Hello, %s!</string>
+</resources>
