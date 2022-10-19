@@ -2,9 +2,11 @@ package br.org.venturus.sharedpreferences
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
+import androidx.datastore.dataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
@@ -17,6 +19,11 @@ import kotlinx.coroutines.launch
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
+val Context.protoDataStore: DataStore<FirstTimePreferences> by dataStore(
+    fileName = "settings.proto",
+    serializer = FirstTimeSerializer
+)
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             isFirstTime().collect { isFirstTime ->
-                if (isFirstTime) {
+                Log.d("Marcos", "isFirstTime -> $isFirstTime")
+                if (isFirstTime.isFirstTime) {
                     showWelcomeDialog()
                     updateFirstTime()
                 }
@@ -33,14 +41,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun isFirstTime(): Flow<Boolean> = dataStore.data.map { preferences ->
-        preferences[KEY_FIRST_TIME_APP] ?: true
-    }
+    private fun isFirstTime(): Flow<FirstTimePreferences> = protoDataStore.data
 
     private fun updateFirstTime() {
         lifecycleScope.launch {
-            dataStore.edit { settings ->
-                settings[KEY_FIRST_TIME_APP] = false
+            protoDataStore.updateData { currentSettings ->
+                currentSettings.copy(
+                    isFirstTime = false,
+                    time = System.currentTimeMillis()
+                )
             }
         }
     }
