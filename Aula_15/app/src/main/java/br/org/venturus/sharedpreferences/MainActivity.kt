@@ -10,9 +10,10 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
@@ -22,16 +23,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (isFirstTime()) {
-            showWelcomeDialog()
-            updateFirstTime()
+        lifecycleScope.launch {
+            isFirstTime().collect { isFirstTime ->
+                if (isFirstTime) {
+                    showWelcomeDialog()
+                    updateFirstTime()
+                }
+            }
         }
     }
 
-    private fun isFirstTime(): Boolean {
-        /*val sharedPref = getPreferences(Context.MODE_PRIVATE)
-        return sharedPref.getBoolean(KEY_FIRST_TIME_APP, true)*/
-        return runBlocking { dataStore.data.first()[KEY_FIRST_TIME_APP] } ?: true
+    private fun isFirstTime(): Flow<Boolean> = dataStore.data.map { preferences ->
+        preferences[KEY_FIRST_TIME_APP] ?: true
     }
 
     private fun updateFirstTime() {
@@ -40,12 +43,6 @@ class MainActivity : AppCompatActivity() {
                 settings[KEY_FIRST_TIME_APP] = false
             }
         }
-
-        /*val sharedPref = getPreferences(Context.MODE_PRIVATE)
-        with(sharedPref.edit()) {
-            putBoolean(KEY_FIRST_TIME_APP, false)
-            apply()
-        }*/
     }
 
     private fun showWelcomeDialog() {
